@@ -32,7 +32,9 @@ const DashboardLayout = ({ children }) => {
         <Sidebar activeMenu={getActiveMenu()} />
 
         {/* Content */}
-        <main className="flex-1 p-4 md:p-8 overflow-y-auto">{children}</main>
+        <main className="flex-1 ml-20 md:ml-64 p-4 md:p-8 overflow-y-auto">
+          {children}
+        </main>
       </div>
     </div>
   );

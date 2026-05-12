@@ -5,7 +5,7 @@ const Sidebar = ({ activeMenu }) => {
   const navigate = useNavigate();
 
   return (
-    <aside className="w-20 md:w-64 border-r border-zinc-800 bg-zinc-900 min-h-[calc(100vh-64px)]">
+    <aside className="top-16 left-0 fixed bg-zinc-900 border-zinc-800 border-r w-20 md:w-64 h-[calc(100vh-64px)] overflow-y-auto">
       <div className="flex flex-col gap-2 p-3">
         {adminMenu.map((item) => {
           const Icon = item.icon;
