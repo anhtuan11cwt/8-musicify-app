@@ -12,7 +12,7 @@ const Navbar = () => {
           <Music2 className="text-black" size={20} />
         </div>
         <h1 className="font-bold text-white text-lg md:text-xl">
-          Musicify Admin
+          Quản trị Musicify
         </h1>
       </div>
 
