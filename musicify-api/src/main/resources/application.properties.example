@@ -1,0 +1,17 @@
+spring.application.name=musicify-api
+
+# MongoDB Configuration
+spring.data.mongodb.uri=mongodb://localhost:27017/musifyapp
+
+# Cloudinary Configuration
+cloudinary.cloud-name=your_cloud_name
+cloudinary.api-key=your_api_key
+cloudinary.api-secret=your_api_secret
+
+# Multipart Upload Configuration
+spring.servlet.multipart.max-file-size=50MB
+spring.servlet.multipart.max-request-size=50MB
+
+# JWT Configuration
+jwt.secret=your_jwt_secret_key_min_32_chars
+jwt.expiration=86400000
