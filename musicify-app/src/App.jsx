@@ -7,8 +7,7 @@ import Sidebar from "./components/Sidebar";
 import { PlayerContext } from "./context/PlayerContextValue";
 import DisplayAlbum from "./pages/DisplayAlbum";
 import DisplayHome from "./pages/DisplayHome";
-
-const Search = () => <h1>Trang Tìm kiếm</h1>;
+import Search from "./pages/Search";
 
 function App() {
   const { track } = useContext(PlayerContext);

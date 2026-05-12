@@ -4,6 +4,8 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "./AuthContextProvider";
 import { PlayerContext } from "./PlayerContextValue";
 
+export { PlayerContext };
+
 const PlayerContextProvider = ({ children }) => {
   const { isAuthenticated, token } = useContext(AuthContext);
 
