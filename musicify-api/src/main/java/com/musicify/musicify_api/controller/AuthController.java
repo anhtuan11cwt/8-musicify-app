@@ -2,6 +2,7 @@ package com.musicify.musicify_api.controller;
 
 import com.musicify.musicify_api.dto.AuthResponse;
 import com.musicify.musicify_api.dto.LoginRequest;
+import com.musicify.musicify_api.dto.PromoteRequest;
 import com.musicify.musicify_api.dto.RegisterRequest;
 import com.musicify.musicify_api.security.JwtUtil;
 import com.musicify.musicify_api.service.UserService;
@@ -42,6 +43,16 @@ public class AuthController {
             return ResponseEntity.ok(response);
         } catch (BadCredentialsException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email hoặc mật khẩu không hợp lệ");
+        }
+    }
+
+    @PostMapping("/promote-to-admin")
+    public ResponseEntity<?> promoteToAdmin(@RequestBody PromoteRequest request) {
+        try {
+            AuthResponse response = userService.promoteToAdmin(request.getEmail());
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }

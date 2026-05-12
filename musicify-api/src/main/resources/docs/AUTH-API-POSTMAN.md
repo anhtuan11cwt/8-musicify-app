@@ -79,6 +79,42 @@
 
 ---
 
+## 3. Nâng quyền Admin
+
+- **Method**: POST
+- **URL**: `http://localhost:5000/api/promote-to-admin`
+- **Authorization**: Bearer {admin_token}
+- **Headers**:
+  - `Content-Type: application/json`
+- **Body** (raw JSON):
+
+```json
+{
+  "email": "user@example.com"
+}
+```
+
+- **Response**:
+  - 200 (thành công):
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "email": "user@example.com",
+  "role": "ADMIN"
+}
+```
+
+  - 400 (không tìm thấy người dùng):
+
+```json
+{
+  "message": "Không tìm thấy người dùng"
+}
+```
+
+---
+
 ## Ghi chú chung
 
 - **Role mặc định**: Tài khoản mới luôn được gán role `USER`.

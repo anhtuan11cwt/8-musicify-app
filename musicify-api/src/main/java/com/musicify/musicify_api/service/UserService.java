@@ -48,5 +48,19 @@ public class UserService {
                 .role(user.getRole())
                 .build();
     }
+
+    public AuthResponse promoteToAdmin(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người dùng"));
+
+        user.setRole(Role.ADMIN);
+        userRepository.save(user);
+
+        return AuthResponse.builder()
+                .token(jwtUtil.generateToken(user.getEmail()))
+                .email(user.getEmail())
+                .role(user.getRole())
+                .build();
+    }
 }
 
