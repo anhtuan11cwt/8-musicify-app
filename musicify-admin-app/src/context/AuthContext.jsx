@@ -1,10 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 import toast from "react-hot-toast";
 import api from "../services/apiService";
 
 export const AuthContext = createContext(null);
+
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {

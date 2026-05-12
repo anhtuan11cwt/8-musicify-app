@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import DashboardLayout from "./layout/DashboardLayout";
 import Login from "./pages/Login";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -11,7 +12,9 @@ const App = () => {
         <Route
           element={
             <ProtectedRoute requireAdmin={true}>
-              <div className="p-8">Thêm Bài Hát</div>
+              <DashboardLayout activeMenu="add-song">
+                <div className="text-2xl font-bold">Thêm Bài Hát</div>
+              </DashboardLayout>
             </ProtectedRoute>
           }
           path="/add-song"
@@ -19,7 +22,9 @@ const App = () => {
         <Route
           element={
             <ProtectedRoute requireAdmin={true}>
-              <div className="p-8">Danh Sách Bài Hát</div>
+              <DashboardLayout activeMenu="list-song">
+                <div className="text-2xl font-bold">Danh Sách Bài Hát</div>
+              </DashboardLayout>
             </ProtectedRoute>
           }
           path="/list-songs"
@@ -27,7 +32,9 @@ const App = () => {
         <Route
           element={
             <ProtectedRoute requireAdmin={true}>
-              <div className="p-8">Thêm Album</div>
+              <DashboardLayout activeMenu="add-album">
+                <div className="text-2xl font-bold">Thêm Album</div>
+              </DashboardLayout>
             </ProtectedRoute>
           }
           path="/add-album"
@@ -35,7 +42,9 @@ const App = () => {
         <Route
           element={
             <ProtectedRoute requireAdmin={true}>
-              <div className="p-8">Danh Sách Album</div>
+              <DashboardLayout activeMenu="list-album">
+                <div className="text-2xl font-bold">Danh Sách Album</div>
+              </DashboardLayout>
             </ProtectedRoute>
           }
           path="/list-albums"
