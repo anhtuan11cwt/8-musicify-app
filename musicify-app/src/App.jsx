@@ -1,11 +1,5 @@
-import "./App.css";
-
 function App() {
-  return (
-    <div>
-      <h1 className="font-bold text-3xl underline">Hello world!</h1>
-    </div>
-  );
+  return <div className="text-3xl font-bold underline">Musicify User App</div>;
 }
 
 export default App;
