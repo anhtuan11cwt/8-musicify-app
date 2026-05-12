@@ -5,6 +5,7 @@ import com.musicify.musicify_api.dto.AuthResponse;
 import com.musicify.musicify_api.dto.RegisterRequest;
 import com.musicify.musicify_api.enums.Role;
 import com.musicify.musicify_api.repository.UserRepository;
+import com.musicify.musicify_api.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtUtil jwtUtil;
 
     public AuthResponse registerUser(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -30,9 +32,21 @@ public class UserService {
         userRepository.save(newUser);
 
         return AuthResponse.builder()
-                .token("")
+                .token(jwtUtil.generateToken(newUser.getEmail()))
                 .email(newUser.getEmail())
                 .role(newUser.getRole())
                 .build();
     }
+
+    public AuthResponse authenticateUser(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người dùng"));
+
+        return AuthResponse.builder()
+                .token(jwtUtil.generateToken(user.getEmail()))
+                .email(user.getEmail())
+                .role(user.getRole())
+                .build();
+    }
 }
+
