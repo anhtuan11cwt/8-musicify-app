@@ -8,3 +8,17 @@ body {
   color: white;
   background: #000;
 }
+
+#root {
+  height: 100vh;
+}
+
+/* Ẩn scrollbar trên tất cả trình duyệt */
+* {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}

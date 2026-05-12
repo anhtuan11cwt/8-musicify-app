@@ -6,12 +6,16 @@ import "./index.css";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 
+import PlayerContextProvider from "./context/PlayerContext";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <Toaster position="top-right" />
-        <App />
+        <PlayerContextProvider>
+          <Toaster position="top-right" />
+          <App />
+        </PlayerContextProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
